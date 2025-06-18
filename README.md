@@ -1,4 +1,4 @@
-<!-- [![PyPi]()]() -->
+[![PyPi](https://img.shields.io/pypi/v/modstablib)](https://pypi.org/project/modstablib/)
 [![GitHub issues](https://img.shields.io/badge/issue_tracking-github-blue.svg)](https://github.com/faridrodriguez/model-stability/issues)
 ![model-stability logo](https://res.cloudinary.com/djk43drcj/image/upload/v1750236449/modstablib-logo.svg)
 
@@ -9,7 +9,7 @@ Tools for stable ML models.
 Install via pip:
 
 ```bash
-pip install .
+pip install modstablib
 ```
 
 ## Usage
