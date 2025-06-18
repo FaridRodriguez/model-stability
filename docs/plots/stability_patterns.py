@@ -5,7 +5,7 @@ def add_noise(base, noise_level):
     return base + rng.normal(loc=0, scale=noise_level, size=len(base))
 
 
-fig, axs = plt.subplots(3, 1, figsize=(8, 10), sharex=True, sharey=True)
+fig, axs = plt.subplots(3, 1, figsize=(6, 7.5), sharex=True, sharey=True)
 fig.set_layout_engine('tight')
 periods = np.arange(1, 13)
 rng = np.random.default_rng(19)
@@ -36,4 +36,4 @@ for ax in axs:
     ax.set_yticks(np.arange(0, 1.1, 0.2))
 axs[-1].set_xlabel("Period")
 
-fig.savefig(get_output_path('stability_patterns.png'), dpi=600)
+fig.savefig(get_output_path('stability_patterns.png'), dpi=100)
