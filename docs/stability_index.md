@@ -1,4 +1,4 @@
-# Model Stability Metric
+# Model Stability Index
 
 
 ## Concept
@@ -6,27 +6,21 @@
 The *stability* of a model is defined as its ability to maintain consistent performance over time or across different conditions. The `stability_index` metric quantifies this by considering:
 
 - The average value of a performance metric (e.g., accuracy, F1-score).
-- The trend (slope) of the metric over time (penalizing decreasing trends).
-- The variability (standard deviation of residuals) around the trend (penalizing high fluctuations).
-
-A higher stability index indicates a more stable model. 
+- The trend (slope) of the metric over time, penalizing decreasing trends.
+- The variability (standard deviation of residuals) around the trend, penalizing high fluctuations.
 
 
-## Visualizing Stability Patterns
+### Visualizing Stability Patterns
 
-The plot bellow illustrates different behaviors of a model's performance metric (such as accuracy) over time:
+The are three critical patterns to be considered when evaluating the stability index:
 
 ![Stability Patterns](images/stability_patterns.png)
 
-
-The are four critical patterns to be considered when evaluating the stability metric:
-
 | Pattern | Description | Stability Index Impact |
 |---|---|---|
-| **Stable High** | The metric remains high and consistent. | High stability index (high mean, low penalty).   |
-| **Decreasing Trend** | The metric shows a downward trend. | Lower stability index due to falling rate penalty.|
-| **High Variability** | The metric fluctuates significantly, even if the mean is high. | Reduced stability index from variability penalty. |
-| **Stable Low** | The metric is consistent but at a low value. | Low stability index due to low mean. |
+| **Ideal** | The metric remains high and consistent over time. | Highest stability index (high mean, minimal penalties).|
+| **Predictable Fall**| The metric shows a steady, predictable downward trend. | Moderate stability index (penalized for falling trend).|
+| **Unpredictable Fall** | The metric fluctuates significantly and/or drops unpredictably. | Lowest stability index (penalized for variability and/or trend). |
 
 
 ## Methodology
@@ -62,7 +56,7 @@ where $\hat{m}_t$ is the predicted value from the regression line at time $t$.
 - **Variability Penalty:** High variability around the trend is penalized, scaled by $w_v$.
 
 
-## Interpretation
+### Interpretation
 
 - **Higher values**: Indicate greater stability (high mean, low decrease, low variability).
 - **Lower values**: Indicate instability (decreasing trend and/or high fluctuations).
