@@ -41,20 +41,20 @@ Where:
 
 - $\overline{m}$ is the mean of the metric vector:
 
-  $$
-  \overline{m} = \frac{1}{T} \sum_{t=1}^T m_t
-  $$
+$$
+\overline{m} = \frac{1}{T} \sum_{t=1}^T m_t
+$$
 
 - $s$ is the slope of the best-fit line (via linear regression) through the metric values.
 - $w_f$ is the falling rate weight (default: 12).
 - $w_v$ is the variability weight (default: 0.5).
 - $\sigma_r$ is the standard deviation of the residuals:
 
-  $$
-  \sigma_r = \sqrt{ \frac{1}{T} \sum_{t=1}^T (m_t - \hat{m}_t)^2 }
-  $$
+$$
+\sigma_r = \sqrt{ \frac{1}{T} \sum_{t=1}^T (m_t - \hat{m}_t)^2 }
+$$
 
-  where $\hat{m}_t$ is the predicted value from the regression line at time $t$.
+where $\hat{m}_t$ is the predicted value from the regression line at time $t$.
 
 ### Penalties
 
