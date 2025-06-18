@@ -19,9 +19,9 @@ The main function provided is `stability_index`, which evaluates the stability o
 ### Example
 
 ```python
-from modstablib.metrics._performance import stability_index
+from modstablib.metrics import stability_index
 
-# Example: accuracy values over epochs
+# example: accuracy values over epochs
 metric_vector = [0.85, 0.86, 0.84, 0.83, 0.82]
 
 score = stability_index(metric_vector)
