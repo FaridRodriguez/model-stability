@@ -1,5 +1,6 @@
 # Model Stability Metric
 
+
 ## Concept
 
 The *stability* of a model is defined as its ability to maintain consistent performance over time or across different conditions. The `stability_index` metric quantifies this by considering:
@@ -10,19 +11,23 @@ The *stability* of a model is defined as its ability to maintain consistent perf
 
 A higher stability index indicates a more stable model. 
 
+
 ## Visualizing Stability Patterns
 
+The plot bellow illustrates different behaviors of a model's performance metric (such as accuracy) over time:
+
 ![Stability Patterns](images/stability_patterns.png)
-*Figure: Example patterns of metric evolution and their impact on the stability index.*
 
-The plot above illustrates different behaviors of a model's performance metric (such as accuracy) over time:
 
-- **Stable High:** The metric remains high and consistent, resulting in a high stability index (high mean, low penalty).
-- **Decreasing Trend:** The metric shows a downward trend, which incurs a falling rate penalty and lowers the stability index.
-- **High Variability:** The metric fluctuates significantly, increasing the variability penalty and reducing the stability index, even if the mean is high.
-- **Stable Low:** The metric is consistent but at a low value, resulting in a low stability index due to the low mean.
+The are four critical patterns to be considered when evaluating the stability metric:
 
-These patterns demonstrate how the stability index captures not only the average performance, but also penalizes instability due to trends and fluctuations.
+| Pattern | Description | Stability Index Impact |
+|---|---|---|
+| **Stable High** | The metric remains high and consistent. | High stability index (high mean, low penalty).   |
+| **Decreasing Trend** | The metric shows a downward trend. | Lower stability index due to falling rate penalty.|
+| **High Variability** | The metric fluctuates significantly, even if the mean is high. | Reduced stability index from variability penalty. |
+| **Stable Low** | The metric is consistent but at a low value. | Low stability index due to low mean. |
+
 
 ## Methodology
 
@@ -35,22 +40,27 @@ $$
 Where:
 
 - $\overline{m}$ is the mean of the metric vector:
+
   $$
   \overline{m} = \frac{1}{T} \sum_{t=1}^T m_t
   $$
+
 - $s$ is the slope of the best-fit line (via linear regression) through the metric values.
 - $w_f$ is the falling rate weight (default: 12).
 - $w_v$ is the variability weight (default: 0.5).
 - $\sigma_r$ is the standard deviation of the residuals:
+
   $$
   \sigma_r = \sqrt{ \frac{1}{T} \sum_{t=1}^T (m_t - \hat{m}_t)^2 }
   $$
+
   where $\hat{m}_t$ is the predicted value from the regression line at time $t$.
 
 ### Penalties
 
 - **Falling Rate Penalty:** If the slope $s$ is negative (performance is decreasing), a penalty proportional to $w_f$ is applied.
 - **Variability Penalty:** High variability around the trend is penalized, scaled by $w_v$.
+
 
 ## Interpretation
 
