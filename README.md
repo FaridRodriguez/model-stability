@@ -1,6 +1,6 @@
 <!-- [![PyPi]()]() -->
 [![GitHub issues](https://img.shields.io/badge/issue_tracking-github-blue.svg)](https://github.com/faridrodriguez/model-stability/issues)
-![model-stability logo](assets/logo.svg)
+![model-stability logo](https://res.cloudinary.com/djk43drcj/image/upload/v1750236449/modstablib-logo.svg)
 
 Tools for stable ML models.
 
